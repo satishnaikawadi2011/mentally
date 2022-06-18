@@ -8,6 +8,7 @@ import FirstFormPage from '../pages/recommend-treatment/1';
 import SecondFormPage from '../pages/recommend-treatment/2';
 import ThirdFormPage from '../pages/recommend-treatment/3';
 import ForthFormPage from '../pages/recommend-treatment/4';
+import ResultPage from '../pages/recommend-treatment/result';
 
 type RoutePathType =
 	| '/'
@@ -29,7 +30,8 @@ const ClientRoutes: RouteType[] = [
 	{ path: '/recommend-treatment/1', element: <FirstFormPage /> },
 	{ path: '/recommend-treatment/2', element: <SecondFormPage /> },
 	{ path: '/recommend-treatment/3', element: <ThirdFormPage /> },
-	{ path: '/recommend-treatment/4', element: <ForthFormPage /> }
+	{ path: '/recommend-treatment/4', element: <ForthFormPage /> },
+	{ path: '/recommend-treatment/result', element: <ResultPage /> }
 ];
 
 const UnauthenticatedRoutes = () => {

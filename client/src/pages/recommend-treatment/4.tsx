@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import feature_value_map from '../../assets/data/feat_val_map.json';
 import feature_ques_map from '../../assets/data/feature_ques_map.json';
 import Select from '../../components/Form/Select/Select';
@@ -7,9 +7,24 @@ import Button from '../../components/Button/Button';
 import { transformListToOptions } from '../../utils/transform_options';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
+import treatmentApi from '../../api/treatment';
+import useApi from '../../hooks/useApi';
+import LoadingSpinner from '../../components/Loader/Loader';
+
 const ForthFormPage = () => {
 	let navigate = useNavigate();
 	let location = useLocation();
+	const { data, error: apiErr, loading, request } = useApi(treatmentApi.recommendTreatment);
+	useEffect(
+		() => {
+			if (data) {
+				navigate('/recommend-treatment/result', { state: data });
+			}
+		},
+		[
+			data
+		]
+	);
 	const [
 		supervisor,
 		setSupervisor
@@ -36,7 +51,7 @@ const ForthFormPage = () => {
 		setError
 	] = useState('');
 
-	const handleSubmit = () => {
+	const handleSubmit = async () => {
 		if (
 			supervisor === 'default' ||
 			mental_health_interview === 'default' ||
@@ -59,15 +74,26 @@ const ForthFormPage = () => {
 			obs_consequence
 		};
 
-		console.log(final_data);
+		if (Object.keys(final_data).length != 22) {
+			navigate('/recommend-treatment', { replace: true });
+			return;
+		}
 
-		// TODO: Make HTTP Post Request To Backend
+		// console.log(final_data);
 
-		// navigate('/recommend-treatment/result', { state: {} });
+		request(final_data);
 	};
 
 	if (location.state == null) {
 		return <Navigate to="/recommend-treatment" replace />;
+	}
+
+	if (loading) {
+		return (
+			<div style={{ display: 'flex', height: '100vh', justifyContent: 'center', alignItems: 'center' }}>
+				<LoadingSpinner />
+			</div>
+		);
 	}
 
 	return (
@@ -114,6 +140,11 @@ const ForthFormPage = () => {
 						{error && (
 							<p style={{ marginTop: 20, textAlign: 'center', fontWeight: 'bold', color: ' #ff4d4d' }}>
 								{error}
+							</p>
+						)}
+						{apiErr && (
+							<p style={{ marginTop: 20, textAlign: 'center', fontWeight: 'bold', color: ' #ff4d4d' }}>
+								{apiErr}
 							</p>
 						)}
 						<Button

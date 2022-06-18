@@ -53,13 +53,14 @@ def mental_health_treatment_prediction():
     for feature,_ in feat_val_dict.items():
         input_df[feature] = [request_data[feature]];
 
-    input_df['Age'] = [float(request_data['Age'])]
+    input_df['Age'] = [float(request_data['age'])]
 
     encode_and_scale_data(input_df)
 
     prediction = treatment_recommendation_model.predict(input_df)
 
     res = int(prediction[0])
+    print(res);
     return jsonify({'treatment':res})
 
 
