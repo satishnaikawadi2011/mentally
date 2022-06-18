@@ -5,8 +5,11 @@ import Select from '../../components/Form/Select/Select';
 import Layout from '../../components/Layout/Layout';
 import Button from '../../components/Button/Button';
 import { transformListToOptions } from '../../utils/transform_options';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 const SecondFormPage = () => {
+	let navigate = useNavigate();
+	let location = useLocation();
 	const [
 		remote_work,
 		setRemote_work
@@ -51,10 +54,26 @@ const SecondFormPage = () => {
 		}
 
 		setError('');
+		navigate('/recommend-treatment/3', {
+			state:
+				{
+					...(location as any).state,
+					remote_work,
+					tech_company,
+					care_options,
+					wellness_program,
+					seek_help,
+					benefits
+				}
+		});
 	};
 
+	if (location.state == null) {
+		return <Navigate to="/recommend-treatment" replace />;
+	}
+
 	return (
-		<Layout title="Treatment Recommendation - Page 1" footer={false}>
+		<Layout title="Treatment Recommendation - Page 2" footer={false}>
 			<React.Fragment>
 				<h1 style={{ textAlign: 'center', marginTop: 100 }}>Mental Health Treatment Recommendation</h1>
 				<div style={{ display: 'flex', justifyContent: 'center' }}>

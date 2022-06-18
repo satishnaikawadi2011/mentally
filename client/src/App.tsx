@@ -4,8 +4,8 @@ import ForthFormPage from './pages/recommend-treatment/4';
 import UnauthenticatedRoutes from './routes/unauthenticated-routes';
 
 function App() {
-	// return <UnauthenticatedRoutes />;
-	return <ForthFormPage />;
+	return <UnauthenticatedRoutes />;
+	// return <ForthFormPage />;
 	// return <Input label="Email" placeholder="Enter your mail.." />;
 	// const [
 	// 	val,

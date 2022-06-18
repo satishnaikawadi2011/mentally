@@ -7,8 +7,11 @@ import Layout from '../../components/Layout/Layout';
 import Button from '../../components/Button/Button';
 import { isNumeric } from '../../utils/validate-inputs';
 import { transformListToOptions } from '../../utils/transform_options';
+import { useNavigate } from 'react-router-dom';
 
 const FirstFormPage = () => {
+	let navigate = useNavigate();
+
 	const [
 		age,
 		setAge
@@ -56,6 +59,9 @@ const FirstFormPage = () => {
 		}
 
 		setError('');
+		navigate('/recommend-treatment/2', {
+			state: { age, Gender, no_employees, work_interfere, self_employed, family_history }
+		});
 	};
 
 	return (

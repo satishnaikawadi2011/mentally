@@ -5,16 +5,11 @@ import Select from '../../components/Form/Select/Select';
 import Layout from '../../components/Layout/Layout';
 import Button from '../../components/Button/Button';
 import { transformListToOptions } from '../../utils/transform_options';
-
-const features = [
-	'supervisor',
-	'mental_health_interview',
-	'phys_health_interview',
-	'phys_health_consequence',
-	'coworkers'
-];
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 const ForthFormPage = () => {
+	let navigate = useNavigate();
+	let location = useLocation();
 	const [
 		supervisor,
 		setSupervisor
@@ -54,7 +49,26 @@ const ForthFormPage = () => {
 		}
 
 		setError('');
+
+		const final_data = {
+			...(location as any).state,
+			supervisor,
+			phys_health_interview,
+			mental_health_interview,
+			mental_vs_physical,
+			obs_consequence
+		};
+
+		console.log(final_data);
+
+		// TODO: Make HTTP Post Request To Backend
+
+		// navigate('/recommend-treatment/result', { state: {} });
 	};
+
+	if (location.state == null) {
+		return <Navigate to="/recommend-treatment" replace />;
+	}
 
 	return (
 		<Layout title="Treatment Recommendation - Page 4" footer={false}>

@@ -5,8 +5,11 @@ import Select from '../../components/Form/Select/Select';
 import Layout from '../../components/Layout/Layout';
 import Button from '../../components/Button/Button';
 import { transformListToOptions } from '../../utils/transform_options';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 const ThirdFormPage = () => {
+	let navigate = useNavigate();
+	let location = useLocation();
 	const [
 		anonymity,
 		setAnonymity
@@ -46,10 +49,25 @@ const ThirdFormPage = () => {
 		}
 
 		setError('');
+		navigate('/recommend-treatment/4', {
+			state:
+				{
+					...(location as any).state,
+					anonymity,
+					leave,
+					mental_health_consequence,
+					coworkers,
+					phys_health_consequence
+				}
+		});
 	};
 
+	if (location.state == null) {
+		return <Navigate to="/recommend-treatment" replace />;
+	}
+
 	return (
-		<Layout title="Treatment Recommendation - Page 1" footer={false}>
+		<Layout title="Treatment Recommendation - Page 3" footer={false}>
 			<React.Fragment>
 				<h1 style={{ textAlign: 'center', marginTop: 100 }}>Mental Health Treatment Recommendation</h1>
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
