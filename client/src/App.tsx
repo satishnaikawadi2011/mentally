@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Benefits from './components/Home/Benefits/Benefits';
 import Hero from './components/Home/Hero/Hero';
@@ -11,6 +12,7 @@ function App() {
 			<Hero />
 			<Benefits />
 			<Treatment />
+			<Footer />
 		</React.Fragment>
 	);
 }
