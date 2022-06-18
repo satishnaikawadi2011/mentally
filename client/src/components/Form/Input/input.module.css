@@ -1,0 +1,37 @@
+.label {
+	display: block;
+	font-weight: bold;
+	letter-spacing: 0.15rem;
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+
+.input__container {
+	/* padding: var(--input-padding); */
+	margin: var(--input-margin);
+}
+
+.input {
+	height: var(--input-height);
+	padding: var(--input-padding);
+	/* margin: var(--input-margin);  */
+	box-sizing: border-box;
+	width: var(--input-width);
+	transition: var(--input-transition);
+	border: var(--input-border);
+	border-radius: var(--input-border-radius);
+	background: var(--input-background);
+	box-shadow: var(--input-box-shadow);
+	color: var(--input-color);
+	font-size: var(--input-font-size);
+}
+
+.input:focus {
+	border: var(--input-focus-border);
+	outline: var(--input-focus-outline);
+	box-shadow: var(--input-focus-box-shadow);
+}
+
+.input::placeholder {
+	color: #ccc;
+}
