@@ -1,0 +1,9 @@
+.select {
+	/* margin: ${(props) => props.theme.input.margin}; */
+	min-width: 50%;
+	max-width: 100%;
+	padding: 0.375em 0.625em;
+	background: var(--input-background);
+	color: var(--input-color);
+	font-size: var(--input-font-size);
+}
