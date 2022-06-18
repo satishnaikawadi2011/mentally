@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import { APP_NAME } from '../../../constants';
 import classes from './header.module.css';
+import Logo from './Logo/Logo';
 import NavLink from './NavLink';
 
 const darkTheme = 'dark-theme';
@@ -32,9 +33,10 @@ const Header = () => {
 	return (
 		<header className="l-header" id="header">
 			<nav className={`${classes.nav} bd-container`}>
-				<a onClick={() => {}} className={classes.nav__logo}>
+				{/* <a onClick={() => {}} className={classes.nav__logo}>
 					{APP_NAME}
-				</a>
+				</a> */}
+				<Logo />
 
 				<div className={classes.nav__menu} id="nav-menu">
 					<ul className={classes.nav__list}>
