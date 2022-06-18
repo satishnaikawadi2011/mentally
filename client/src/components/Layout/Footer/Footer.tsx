@@ -1,12 +1,12 @@
 import React from 'react';
-import { APP_NAME } from '../../constants';
+import { APP_NAME } from '../../../constants';
 import classes from './footer.module.css';
 import FooterLink from './FooterLink';
 import FooterSocial from './FooterSocial';
 
 const Footer = () => {
 	return (
-		<footer className="footer section">
+		<footer className={`${classes.footer} section`}>
 			<div className={`${classes.footer__container} bd-container bd-grid`}>
 				<div className={classes.footer__content}>
 					<h3 className={classes.footer__title}>
