@@ -1,4 +1,6 @@
 # Logs
+index.txt
+
 client/logs
 client/*.log
 client/npm-debug.log*
