@@ -7,12 +7,14 @@ import classes from './layout.module.css';
 
 interface Props {
 	title: string;
-	children?: React.ReactNode;
+	children?: any;
 	className?: string;
 	style?: React.CSSProperties;
+	header?: boolean;
+	footer?: boolean;
 }
 
-const Layout: React.FC<Props> = ({ title, children, className, style }) => {
+const Layout: React.FC<Props> = ({ title, children, className, style, footer = true, header = true }) => {
 	return (
 		<React.Fragment>
 			<Helmet>
@@ -20,11 +22,11 @@ const Layout: React.FC<Props> = ({ title, children, className, style }) => {
 					{title} | {APP_NAME}
 				</title>
 			</Helmet>
-			<Header />
+			{header && <Header />}
 			<div className={`${classes.content} ${className}`} style={{ ...style }}>
 				{children}
 			</div>
-			<Footer />
+			{footer && <Footer />}
 		</React.Fragment>
 	);
 };
