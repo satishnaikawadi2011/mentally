@@ -1,8 +1,7 @@
 import React from 'react';
-import HomePage from './pages';
-
+import UnauthenticatedRoutes from './routes/unauthenticated-routes';
 function App() {
-	return <HomePage />;
+	return <UnauthenticatedRoutes />;
 }
 
 export default App;
