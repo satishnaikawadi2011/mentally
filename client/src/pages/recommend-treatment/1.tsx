@@ -6,14 +6,7 @@ import Select from '../../components/Form/Select/Select';
 import Layout from '../../components/Layout/Layout';
 import Button from '../../components/Button/Button';
 import { isNumeric } from '../../utils/validate-inputs';
-
-const transformListToOptions = (options: any[]) => {
-	let transformOptions: any = {};
-	options.forEach((opt) => {
-		transformOptions[opt] = opt;
-	});
-	return transformOptions;
-};
+import { transformListToOptions } from '../../utils/transform_options';
 
 const FirstFormPage = () => {
 	const [
