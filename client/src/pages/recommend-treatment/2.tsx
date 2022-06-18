@@ -6,15 +6,6 @@ import Layout from '../../components/Layout/Layout';
 import Button from '../../components/Button/Button';
 import { transformListToOptions } from '../../utils/transform_options';
 
-const features = [
-	'remote_work',
-	'tech_company',
-	'benefits',
-	'care_options',
-	'wellness_program',
-	'seek_help'
-];
-
 const SecondFormPage = () => {
 	const [
 		remote_work,

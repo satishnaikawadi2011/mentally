@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import Input from './components/Form/Input/Input';
-import Select from './components/Form/Select/Select';
-import FirstFormPage from './pages/recommend-treatment/1';
-import SecondFormPage from './pages/recommend-treatment/2';
+import ThirdFormPage from './pages/recommend-treatment/3';
 import UnauthenticatedRoutes from './routes/unauthenticated-routes';
 function App() {
 	// return <UnauthenticatedRoutes />;
-	return <SecondFormPage />;
+	return <ThirdFormPage />;
 	// return <Input label="Email" placeholder="Enter your mail.." />;
 	// const [
 	// 	val,
