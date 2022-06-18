@@ -6,14 +6,6 @@ import Layout from '../../components/Layout/Layout';
 import Button from '../../components/Button/Button';
 import { transformListToOptions } from '../../utils/transform_options';
 
-const features = [
-	'anonymity',
-	'leave',
-	'mental_health_consequence',
-	'phys_health_consequence',
-	'coworkers'
-];
-
 const ThirdFormPage = () => {
 	const [
 		anonymity,

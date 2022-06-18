@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import ThirdFormPage from './pages/recommend-treatment/3';
+import ForthFormPage from './pages/recommend-treatment/4';
 import UnauthenticatedRoutes from './routes/unauthenticated-routes';
+
 function App() {
 	// return <UnauthenticatedRoutes />;
-	return <ThirdFormPage />;
+	return <ForthFormPage />;
 	// return <Input label="Email" placeholder="Enter your mail.." />;
 	// const [
 	// 	val,
