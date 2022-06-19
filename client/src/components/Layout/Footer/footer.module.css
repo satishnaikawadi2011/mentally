@@ -8,6 +8,7 @@
 
 .footer__logo {
 	color: var(--title-color);
+	cursor: pointer;
 }
 
 .footer__title {
@@ -23,6 +24,7 @@
 	display: inline-block;
 	margin-bottom: .75rem;
 	color: var(--text-color);
+	cursor: pointer;
 }
 
 .footer__link:hover {
@@ -33,6 +35,7 @@
 	font-size: 1.5rem;
 	color: var(--title-color);
 	margin-right: var(--mb-3);
+	cursor: pointer;
 }
 
 .footer__social:hover {

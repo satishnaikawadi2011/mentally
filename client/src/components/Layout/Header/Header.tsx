@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-import { APP_NAME } from '../../../constants';
+import { useNavigate } from 'react-router-dom';
 import classes from './header.module.css';
 import Logo from './Logo/Logo';
 import NavLink from './NavLink';
@@ -12,6 +11,7 @@ const toggle = document.getElementById(toggleId),
 	nav = document.getElementById(navId);
 
 const Header = () => {
+	let navigate = useNavigate();
 	const [
 		isDark,
 		setIsDark
@@ -28,22 +28,16 @@ const Header = () => {
 		}
 	};
 
-	// let navigate = useNavigate();
-
 	return (
 		<header className="l-header" id="header">
 			<nav className={`${classes.nav} bd-container`}>
-				{/* <a onClick={() => {}} className={classes.nav__logo}>
-					{APP_NAME}
-				</a> */}
 				<Logo />
 
 				<div className={classes.nav__menu} id="nav-menu">
 					<ul className={classes.nav__list}>
-						<NavLink title="Home" />
-						<NavLink title="Share" />
-						<NavLink title="Decorations" />
-						<NavLink title="Accessory" />
+						<NavLink title="Home" onClick={() => navigate('/')} />
+						<NavLink title="About" onClick={() => navigate('/about')} />
+						<NavLink title="Treatment Recommendation" onClick={(e) => navigate('/recommend-treatment')} />
 						<li>
 							<i
 								onClick={handleThemeChange}

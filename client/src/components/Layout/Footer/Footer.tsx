@@ -1,16 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { APP_NAME } from '../../../constants';
 import classes from './footer.module.css';
 import FooterLink from './FooterLink';
 import FooterSocial from './FooterSocial';
 
 const Footer = () => {
+	let navigate = useNavigate();
 	return (
 		<footer className={`${classes.footer} section`}>
 			<div className={`${classes.footer__container} bd-container bd-grid`}>
 				<div className={classes.footer__content}>
 					<h3 className={classes.footer__title}>
-						<a href="#" className={classes.footer__logo}>
+						<a onClick={() => navigate('/')} className={classes.footer__logo}>
 							{APP_NAME}
 						</a>
 					</h3>
@@ -22,7 +24,7 @@ const Footer = () => {
 				<div className={classes.footer__content}>
 					<h3 className={classes.footer__title}>Our Services</h3>
 					<ul>
-						<FooterLink title="Treatment Recommendation" to="/" />
+						<FooterLink to={'/recommend-treatment'} title="Treatment Recommendation" />
 					</ul>
 				</div>
 

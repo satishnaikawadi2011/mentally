@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import classes from './footer.module.css';
 
 interface Props {
@@ -7,8 +8,9 @@ interface Props {
 }
 
 const FooterSocial: React.FC<Props> = ({ icon, to }) => {
+	let navigate = useNavigate();
 	return (
-		<a href={to} className={classes.footer__social}>
+		<a onClick={() => navigate(to)} className={classes.footer__social}>
 			<i className={icon} />
 		</a>
 	);

@@ -2,8 +2,10 @@ import React from 'react';
 import classes from './benefits.module.css';
 import benefits from '../../../assets/images/happy.png';
 import Button from '../../Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Benefits = () => {
+	let navigate = useNavigate();
 	return (
 		<section style={{ marginTop: 30 }} className="benefits section bd-container" id="benefits">
 			<div className={`${classes.benefits__container} bd-grid`}>
@@ -14,7 +16,7 @@ const Benefits = () => {
 						stress reported at epidemic levels around the world.Improved mental health practices can reduce
 						the risk.
 					</p>
-					<Button title="Try It" />
+					<Button title="Try It" onClick={() => navigate('/recommend-treatment/1')} />
 				</div>
 
 				<div className={classes.benefits__img}>
