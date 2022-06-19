@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import HomePage from '../pages';
+import AboutPage from '../pages/about';
 import NotFoundPage from '../pages/not-found';
 import RecommendTreatmentPage from '../pages/recommend-treatment';
 import FirstFormPage from '../pages/recommend-treatment/1';
@@ -17,7 +18,8 @@ type RoutePathType =
 	| '/recommend-treatment/2'
 	| '/recommend-treatment/3'
 	| '/recommend-treatment/result'
-	| '/recommend-treatment/4';
+	| '/recommend-treatment/4'
+	| '/about';
 
 export interface RouteType {
 	path: RoutePathType;
@@ -31,7 +33,8 @@ const ClientRoutes: RouteType[] = [
 	{ path: '/recommend-treatment/2', element: <SecondFormPage /> },
 	{ path: '/recommend-treatment/3', element: <ThirdFormPage /> },
 	{ path: '/recommend-treatment/4', element: <ForthFormPage /> },
-	{ path: '/recommend-treatment/result', element: <ResultPage /> }
+	{ path: '/recommend-treatment/result', element: <ResultPage /> },
+	{ path: '/about', element: <AboutPage /> }
 ];
 
 const UnauthenticatedRoutes = () => {
