@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classes from './header.module.css';
 import Logo from './Logo/Logo';
@@ -7,11 +7,15 @@ import NavLink from './NavLink';
 const darkTheme = 'dark-theme';
 const toggleId = 'nav-toggle';
 const navId = 'nav-menu';
-const toggle = document.getElementById(toggleId),
-	nav = document.getElementById(navId);
 
 const Header = () => {
 	let navigate = useNavigate();
+	let toggle: any = null,
+		nav: any = null;
+	useEffect(() => {
+		(toggle = document.getElementById(toggleId)), (nav = document.getElementById(navId));
+	}, []);
+
 	const [
 		isDark,
 		setIsDark
@@ -23,7 +27,9 @@ const Header = () => {
 	};
 
 	const handleShowMenu = () => {
+		console.log(toggle, nav);
 		if (toggle && nav) {
+			console.log('Inside------>', toggle, nav);
 			nav.classList.toggle(classes.show__menu);
 		}
 	};
