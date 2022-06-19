@@ -11,14 +11,15 @@ const Result: React.FC<Props> = ({ result }) => {
 	let title = '',
 		desc = '';
 
-	title = 'Recommendation';
 	if (result) {
 		desc =
 			'The prediction done by application shows that you need to take treatment for mental health. You can perform many useful methods such as talking therapy,meditation,self-help,etc to reduce chronic stress.';
+		title = 'Treatment Needed';
 	}
 	else {
 		desc =
 			'The prediction done by application shows that you do not need any treatment for mental health.But you can always perform meditation to boost productivity and happiness.';
+		title = 'Treatment Not Needed';
 	}
 	return (
 		<section className={`${classes.result} section`}>
